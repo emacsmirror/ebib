@@ -2261,8 +2261,8 @@ unconditionally, even if the new file already exists."
          (when (or force
                    (not (file-exists-p new-filename))
                    (y-or-n-p (format (format "File %s already exists; overwrite? " new-filename))))
-           (with-current-buffer (or (find-buffer-visiting new-file-name)
-                                    (find-file-noselect new-file-name))
+           (with-current-buffer (or (find-buffer-visiting new-filename)
+                                    (find-file-noselect new-filename))
              (read-only-mode 0)
              (erase-buffer)
              (ebib--format-database-as-bibtex ebib--cur-db)
